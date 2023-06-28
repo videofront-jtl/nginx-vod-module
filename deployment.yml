@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: kautura-deployment
+  name: kaltura
   labels:
     app: kautura
 spec:
