@@ -40,6 +40,7 @@ RUN make install
 
 COPY ./conf/ /usr/local/nginx/conf/
 COPY ./favicon.ico /usr/local/nginx/html/
+# COPY ./index.html /usr/local/nginx/html/
 
 ENTRYPOINT ["/usr/local/nginx/sbin/nginx"]
 CMD ["-g", "daemon off;"]
