@@ -3,20 +3,20 @@ kind: Deployment
 metadata:
   name: kaltura
   labels:
-    app: kautura
+    app: kaltura
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: kautura
+      app: kaltura
   minReadySeconds: 0
   template:
     metadata:
       labels:
-        app: kautura
+        app: kaltura
     spec:
       containers:
-      - name: kautura
+      - name: kaltura
         image: <IMAGE>
         ports:
         - containerPort: 80
@@ -31,7 +31,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: kautura-service
+  name: kaltura-service
 spec:
   type: LoadBalancer
   ports:
@@ -40,4 +40,4 @@ spec:
       port: 80
       targetPort: 80
   selector:
-    app: kautura
+    app: kaltura
