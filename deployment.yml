@@ -45,11 +45,11 @@ metadata:
     service.beta.kubernetes.io/do-loadbalancer-healthcheck-protocol: "http"
     service.beta.kubernetes.io/do-loadbalancer-healthcheck-port: "80"
     service.beta.kubernetes.io/do-loadbalancer-healthcheck-path: "/vod-status"
-    # service.beta.kubernetes.io/do-loadbalancer-healthcheck-check-interval-seconds: "3"
-    # service.beta.kubernetes.io/do-loadbalancer-healthcheck-response-timeout-seconds: "5"
-    # service.beta.kubernetes.io/do-loadbalancer-healthcheck-unhealthy-threshold: "3"
-    # service.beta.kubernetes.io/do-loadbalancer-healthcheck-healthy-threshold: "5"
-    service.beta.kubernetes.io/do-loadbalancer-http-idle-timeout-seconds: "12" # each chunck has 6s
+    service.beta.kubernetes.io/do-loadbalancer-healthcheck-check-interval-seconds: "10"
+    service.beta.kubernetes.io/do-loadbalancer-healthcheck-response-timeout-seconds: "5"
+    service.beta.kubernetes.io/do-loadbalancer-healthcheck-unhealthy-threshold: "3"
+    service.beta.kubernetes.io/do-loadbalancer-healthcheck-healthy-threshold: "5"
+    service.beta.kubernetes.io/do-loadbalancer-http-idle-timeout-seconds: "60"
 spec:
   type: LoadBalancer
   selector:
