@@ -34,7 +34,7 @@ kind: Service
 metadata:
   name: kaltura
   annotations:
-    # kubernetes.digitalocean.com/load-balancer-id: "kaltura"
+    service.beta.kubernetes.io/do-loadbalancer-name: "kaltura"
     service.beta.kubernetes.io/do-loadbalancer-size-unit: "3"
     service.beta.kubernetes.io/do-loadbalancer-algorithm: "least_connections"
     service.beta.kubernetes.io/do-loadbalancer-protocol: "http"
@@ -54,7 +54,6 @@ spec:
   type: LoadBalancer
   selector:
     app: kaltura
-  externalTrafficPolicy: Local
   ports:
     - name: http
       protocol: TCP
