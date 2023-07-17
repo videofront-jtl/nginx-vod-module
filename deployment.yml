@@ -9,7 +9,6 @@ spec:
   selector:
     matchLabels:
       app: kaltura
-  minReadySeconds: 0
   template:
     metadata:
       labels:
@@ -51,7 +50,7 @@ metadata:
     service.beta.kubernetes.io/do-loadbalancer-http-idle-timeout-seconds: "60"
     service.beta.kubernetes.io/do-loadbalancer-sticky-sessions-type: "cookies"
     service.beta.kubernetes.io/do-loadbalancer-sticky-sessions-cookie-name: "DO-LB"
-    service.beta.kubernetes.io/do-loadbalancer-sticky-sessions-cookie-ttl: "28800" # in seconds = 8h
+    service.beta.kubernetes.io/do-loadbalancer-sticky-sessions-cookie-ttl: "18000"
     service.beta.kubernetes.io/do-loadbalancer-healthcheck-port: "80"
     service.beta.kubernetes.io/do-loadbalancer-healthcheck-path: "/vod-status"
     service.beta.kubernetes.io/do-loadbalancer-healthcheck-protocol: "http"
@@ -63,6 +62,10 @@ spec:
   type: LoadBalancer
   selector:
     app: kaltura
+  sessionAffinity: ClientIP
+  sessionAffinityConfig:
+    clientIP:
+      timeoutSeconds: 18000
   externalTrafficPolicy: Local
   ports:
     - name: http
