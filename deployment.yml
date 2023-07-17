@@ -22,11 +22,11 @@ spec:
           protocol: TCP
         resources:
           requests:
-            cpu: 1300m
-            memory: 2500M
+            cpu: "500m"
+            memory: "1024Mi"
           limits:
-            cpu: 2000m
-            memory: 4000M
+            cpu: "1000m"
+            memory: "1024Mi"
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
