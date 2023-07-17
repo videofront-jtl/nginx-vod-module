@@ -43,7 +43,6 @@ metadata:
     service.beta.kubernetes.io/do-loadbalancer-name: "kaltura"
     service.beta.kubernetes.io/do-loadbalancer-size-unit: "3"
     service.beta.kubernetes.io/do-loadbalancer-algorithm: "least_connections"
-    service.beta.kubernetes.io/do-loadbalancer-enable-proxy-protocol: "true"
     service.beta.kubernetes.io/do-loadbalancer-enable-backend-keepalive: "true"
     service.beta.kubernetes.io/do-loadbalancer-protocol: "http"
     service.beta.kubernetes.io/do-loadbalancer-http-ports: "80"
