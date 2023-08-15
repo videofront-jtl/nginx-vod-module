@@ -1,16 +1,16 @@
 steps: # https://cloud.google.com/build/docs/deploying-builds/deploy-cloud-run?hl=pt-br#continuous_deployment
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '--no-cache', '-t', 'gcr.io/medialib-324920/kaltura:$COMMIT_SHA', '.', '-f', 'Dockerfile']
+  args: ['build', '--no-cache', '-t', 'gcr.io/videoteca-338113/kaltura:$COMMIT_SHA', '.', '-f', 'Dockerfile']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/medialib-324920/kaltura:$COMMIT_SHA']
+  args: ['push', 'gcr.io/videoteca-338113/kaltura:$COMMIT_SHA']
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
   args: # https://cloud.google.com/sdk/gcloud/reference/run/deploy?hl=pt-br
   - run
   - deploy
   - kaltura
-  - --image=gcr.io/medialib-324920/kaltura:$COMMIT_SHA
-  - --service-account=802540754374-compute@developer.gserviceaccount.com
+  - --image=gcr.io/videoteca-338113/kaltura:$COMMIT_SHA
+  - --service-account=53643280297-compute@developer.gserviceaccount.com
   - --region=us-central1
   - --platform=managed
   - --cpu=1
