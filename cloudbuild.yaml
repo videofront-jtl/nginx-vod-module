@@ -1,0 +1,25 @@
+steps: # https://cloud.google.com/build/docs/deploying-builds/deploy-cloud-run?hl=pt-br#continuous_deployment
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--no-cache', '-t', 'gcr.io/medialib-324920/kaltura:$COMMIT_SHA', '.', '-f', 'Dockerfile']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/medialib-324920/kaltura:$COMMIT_SHA']
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args: # https://cloud.google.com/sdk/gcloud/reference/run/deploy?hl=pt-br
+  - run
+  - deploy
+  - kaltura
+  - --image=gcr.io/medialib-324920/kaltura:$COMMIT_SHA
+  - --service-account=802540754374-compute@developer.gserviceaccount.com
+  - --region=us-central1
+  - --platform=managed
+  - --cpu=1
+  - --memory=2Gi
+  - --timeout=3600
+  - --min-instances=0
+  - --max-instances=1000
+  - --ingress=all
+  - --allow-unauthenticated
+  - --session-affinity
+  - --cpu-boost
+  - --port=8080
